@@ -1,7 +1,10 @@
 import { Container, Text, VStack, Heading, Button, Box, Image, Flex } from "@chakra-ui/react";
 import { FaCalendarAlt, FaUsers, FaChartLine } from "react-icons/fa";
+import { useSupabaseAuth } from "../integrations/supabase/auth.jsx";
 
 const Index = () => {
+  const { session, logout } = useSupabaseAuth();
+
   return (
     <Container centerContent maxW="container.xl" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center" p={4}>
       <VStack spacing={8} textAlign="center">
@@ -11,9 +14,15 @@ const Index = () => {
         <Text fontSize="xl" color="gray.600">
           Our SaaS solution helps you manage events effortlessly, from planning to execution.
         </Text>
-        <Button colorScheme="teal" size="lg">
-          Get Started
-        </Button>
+        {session ? (
+          <Button colorScheme="teal" size="lg" onClick={logout}>
+            Logout
+          </Button>
+        ) : (
+          <Button colorScheme="teal" size="lg" as="a" href="/login">
+            Login
+          </Button>
+        )}
       </VStack>
       <Box mt={10} width="100%">
         <Flex justify="space-around" wrap="wrap">
