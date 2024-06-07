@@ -1,18 +1,51 @@
-// Update this page (the content is just a fallback if you fail and example)
-// Use chakra-ui
-import { Container, Text, VStack } from "@chakra-ui/react";
-
-// Example of using react-icons
-// import { FaRocket } from "react-icons/fa";
-// <IconButton aria-label="Add" icon={<FaRocket />} size="lg" />; // IconButton would also have to be imported from chakra
+import { Container, Text, VStack, Heading, Button, Box, Image, Flex } from "@chakra-ui/react";
+import { FaCalendarAlt, FaUsers, FaChartLine } from "react-icons/fa";
 
 const Index = () => {
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-      <VStack spacing={4}>
-        <Text fontSize="2xl">Your Blank Canvas</Text>
-        <Text>Chat with the agent to start making edits.</Text>
+    <Container centerContent maxW="container.xl" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center" p={4}>
+      <VStack spacing={8} textAlign="center">
+        <Heading as="h1" size="2xl" color="brand.700">
+          Event Management Simplified
+        </Heading>
+        <Text fontSize="xl" color="gray.600">
+          Our SaaS solution helps you manage events effortlessly, from planning to execution.
+        </Text>
+        <Button colorScheme="teal" size="lg">
+          Get Started
+        </Button>
       </VStack>
+      <Box mt={10} width="100%">
+        <Flex justify="space-around" wrap="wrap">
+          <Box textAlign="center" p={4} maxW="sm">
+            <FaCalendarAlt size="3em" color="teal" />
+            <Heading as="h3" size="lg" mt={4}>
+              Plan
+            </Heading>
+            <Text mt={2} color="gray.600">
+              Seamlessly plan your events with our intuitive tools.
+            </Text>
+          </Box>
+          <Box textAlign="center" p={4} maxW="sm">
+            <FaUsers size="3em" color="teal" />
+            <Heading as="h3" size="lg" mt={4}>
+              Manage
+            </Heading>
+            <Text mt={2} color="gray.600">
+              Efficiently manage attendees, vendors, and more.
+            </Text>
+          </Box>
+          <Box textAlign="center" p={4} maxW="sm">
+            <FaChartLine size="3em" color="teal" />
+            <Heading as="h3" size="lg" mt={4}>
+              Analyze
+            </Heading>
+            <Text mt={2} color="gray.600">
+              Gain insights with our powerful analytics tools.
+            </Text>
+          </Box>
+        </Flex>
+      </Box>
     </Container>
   );
 };
